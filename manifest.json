@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Zetamac While You Wait",
+  "version": "1.0",
+  "description": "Opens Zetamac arithmetic while ChatGPT/Claude is generating a response",
+  "permissions": ["tabs", "scripting"],
+  "host_permissions": [
+    "https://chatgpt.com/*",
+    "https://chat.openai.com/*",
+    "https://claude.ai/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*"
+      ],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
